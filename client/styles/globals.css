@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.container{
+    @apply m-auto;
+}
+
+.container--full{
+    @apply h-screen;
+    @apply w-screen;
+}
+
+.container--content-center{
+    @apply text-center;
+    @apply flex flex-col items-center justify-center;
+}
