@@ -31,22 +31,41 @@ public class ServerApplication {
                 "CURRENTLY_NONE"
         );
 
+        Movie loneSurvivor = new Movie(
+                2L,
+                "Lone Survivor",
+                2013,
+                121,
+                "CURRENTLY_NONE"
+        );
+
         Seance seance = new Seance(
                 1L,
-                1L,
                 new Timestamp(Timestamp.valueOf("2022-08-09 20:00:00").getTime()),
-                49
+                49,
+                fightClub
+        );
+
+        Seance loneSeance = new Seance(
+                2L,
+                new Timestamp(Timestamp.valueOf("2022-05-03 17:00:00").getTime()),
+                50,
+                loneSurvivor
         );
 
         Seat seat = new Seat(
                 1L,
-                1L,
+                seance,
                 12,
                 "someplayer@gmail.com"
         );
 
         movieRepository.save(fightClub);
+        movieRepository.save(loneSurvivor);
+
         seanceRepository.save(seance);
+        seanceRepository.save(loneSeance);
+
         seatRepository.save(seat);
     }
 
