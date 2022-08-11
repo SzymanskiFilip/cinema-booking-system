@@ -2,6 +2,8 @@ package eu.filip.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "seance")
@@ -9,18 +11,20 @@ public class Seance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "movie_id")
-    private Long movieId;
     @Column(name = "play_date")
     private Timestamp playDate;
     @Column(name = "available_seats")
     private int availableSeats;
 
-    public Seance(Long id, Long movieId, Timestamp playDate, int availableSeats) {
+    @ManyToOne
+    @JoinColumn(name = "movie_id", referencedColumnName = "id")
+    private Movie movie;
+
+    public Seance(Long id, Timestamp playDate, int availableSeats, Movie movie) {
         this.id = id;
-        this.movieId = movieId;
         this.playDate = playDate;
         this.availableSeats = availableSeats;
+        this.movie = movie;
     }
 
     public Seance(){}
@@ -31,14 +35,6 @@ public class Seance {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getMovieId() {
-        return movieId;
-    }
-
-    public void setMovieId(Long movieId) {
-        this.movieId = movieId;
     }
 
     public Timestamp getPlayDate() {
@@ -55,5 +51,13 @@ public class Seance {
 
     public void setAvailableSeats(int availableSeats) {
         this.availableSeats = availableSeats;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movie movie) {
+        this.movie = movie;
     }
 }

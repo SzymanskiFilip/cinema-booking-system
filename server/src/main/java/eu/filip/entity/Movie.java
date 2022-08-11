@@ -1,12 +1,16 @@
 package eu.filip.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "movies")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
     private String title;
 
@@ -17,6 +21,7 @@ public class Movie {
 
     @Column(name = "cover_url")
     private String coverURL;
+
 
     public Movie(Long id, String title, int yearOfRelease, int duration, String coverURL) {
         this.id = id;

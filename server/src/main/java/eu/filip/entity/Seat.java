@@ -9,17 +9,18 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "seance_id")
-    private Long seanceId;
+    @OneToOne
+    @JoinColumn(name = "seance_id", referencedColumnName = "id")
+    private Seance seance;
 
     @Column(name = "seat_number")
     private int seatNumber;
 
     private String email;
 
-    public Seat(Long id, Long seanceId, int seatNumber, String email) {
+    public Seat(Long id, Seance seance, int seatNumber, String email) {
         this.id = id;
-        this.seanceId = seanceId;
+        this.seance = seance;
         this.seatNumber = seatNumber;
         this.email = email;
     }
@@ -32,14 +33,6 @@ public class Seat {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Long getSeanceId() {
-        return seanceId;
-    }
-
-    public void setSeanceId(Long seanceId) {
-        this.seanceId = seanceId;
     }
 
     public int getSeatNumber() {
