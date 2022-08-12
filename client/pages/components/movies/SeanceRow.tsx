@@ -15,11 +15,15 @@ type seance = {
 //
 
 function SeanceRow({data}: seance): JSX.Element{
+
+    let date = new Date(data.playDate);
+
     return(
         <div className="movie-row">
             <img alt="123" src="https://img.actvid.com/xxrz/250x400/189/ea/b4/eab48fa4c71804c00008616715dd3777/eab48fa4c71804c00008616715dd3777.jpg"/>
             <div className="movie-row__content">
                 <h1 className="text-5xl">{data.movie.title}</h1>
+                <p>Date: {getDateString(date)}</p>
                 <div className="flex flex-row">
                     <div className="movie-row__content__block">
                         <h1>DURATION</h1>
@@ -39,9 +43,47 @@ function SeanceRow({data}: seance): JSX.Element{
                         <button className="btn btn__action">RESERVE SEAT</button>
                     </div>
                 </div>
+
+                <h1>Seats: {data.availableSeats} / 50</h1>
             </div>
         </div>
     )
 };
+
+function getDateString(date: Date): string{
+    let day: string;
+    let month: string;
+
+    let hours: string;
+    let minutes: string;
+
+    if(date.getDay() < 10){
+        day = `0${date.getDay()}`;
+    } else {
+        day = date.getDay().toString();
+    }
+
+    if(date.getMonth() < 10){
+        month = `0${date.getMonth()}`;
+    } else {
+        month = date.getMonth().toString();
+    }
+
+    if(date.getHours() < 10){
+        hours = `0${date.getHours()}`;
+    } else {
+        hours = date.getHours().toString();
+    }
+
+    if(date.getMinutes() < 10){
+        minutes = `0${date.getMinutes()}`;
+    } else {
+        minutes = date.getMinutes().toString();
+    }
+
+    let dateString = `${hours}:${minutes} - ${day}.${month}.${date.getFullYear()}`;
+
+    return dateString;
+}
 
 export default SeanceRow;
