@@ -31,6 +31,7 @@
 
 .movie-row img{
     display: block;
+    width: 250px;
 }
 
 .movie-row__content{
