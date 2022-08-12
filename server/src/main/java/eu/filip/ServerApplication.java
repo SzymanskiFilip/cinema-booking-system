@@ -28,7 +28,7 @@ public class ServerApplication {
                 "Fight Club",
                 1999,
                 139,
-                "CURRENTLY_NONE"
+                "http://localhost:8080/images/COVERS/pb.jpg"
         );
 
         Movie loneSurvivor = new Movie(
@@ -36,7 +36,7 @@ public class ServerApplication {
                 "Lone Survivor",
                 2013,
                 121,
-                "CURRENTLY_NONE"
+                "http://localhost:8080/images/COVERS/ls.jpg"
         );
 
         Seance seance = new Seance(
