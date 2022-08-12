@@ -1,24 +1,33 @@
 import {NextPage} from "next";
+import SeanceRow from "../components/movies/SeanceRow";
+import seanceRow from "../components/movies/SeanceRow";
 
-type movie = {
+type seance = {
     id: number;
-    title: string;
-    year_of_release: number;
-    duration: number;
-    cover_url: string;
+    playDate: string;
+    availableSeats: number;
+    movie: {
+        id: number;
+        title: string;
+        yearOfRelease: number;
+        duration: number;
+        coverURL: string;
+    }
 }
 
 type PageProps = {
-    movies: movie[];
+    seances: seance[];
 }
 
-const Movies: NextPage<PageProps> = ({movies}) => {
+const Movies: NextPage<PageProps> = ({seances}) => {
 
-    console.log(movies)
+    console.log(seances)
 
     return(
-        <div>
-            movies
+        <div className="movies-list">
+            {seances.map((seance) => {
+                return <SeanceRow data={seance}/>
+            })}
         </div>
     )
 }
@@ -27,12 +36,12 @@ export default Movies;
 
 export async function getServerSideProps(){
 
-    const res = await fetch("http://localhost:8080/movies?pageNumber=0&pageSize=10");
+    const res = await fetch("http://localhost:8080/seances");
     const data = await res.json();
 
     return {
         props: {
-            movies: data
+            seances: data
         }
     }
 }

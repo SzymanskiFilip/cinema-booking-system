@@ -16,3 +16,43 @@
     @apply text-center;
     @apply flex flex-col items-center justify-center;
 }
+
+.movies-list{
+    @apply flex flex-col justify-center items-center;
+}
+
+.movie-row{
+    @apply flex flex-row;
+    @apply bg-sky-100;
+    @apply w-2/3 h-1/6 m-8;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.movie-row img{
+    display: block;
+}
+
+.movie-row__content{
+    @apply w-full flex flex-col items-center justify-around mt-2;
+}
+
+.movie-row__content__block{
+    @apply flex flex-col items-center m-4 text-2xl;
+}
+
+.btn{
+    @apply p-2 rounded m-2;
+}
+
+.btn__warning{
+    @apply bg-red-700 text-white;
+}
+
+.btn__change{
+    @apply bg-amber-600 text-white;
+}
+
+.btn__action{
+    @apply bg-sky-700 text-white;
+}
