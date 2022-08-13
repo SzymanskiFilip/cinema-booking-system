@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 type seance = {
     data: {
         id: number;
@@ -36,11 +38,11 @@ function SeanceRow({data}: seance): JSX.Element{
                 </div>
 
                 <div className="flex flex-col">
-                    <button className="btn btn__warning">MORE INFO</button>
+                    <Link href="/seances/1"><button className="btn btn__warning">MORE INFO</button></Link>
 
                     <div className="flex flex-row">
-                        <button className="btn btn__change">CHANGE SEAT</button>
-                        <button className="btn btn__action">RESERVE SEAT</button>
+                        <Link href={"/"}><button className="btn btn__change">CHANGE SEAT</button></Link>
+                        <Link href={`/seances/${data.id}`}><button className="btn btn__action" >RESERVE SEAT</button></Link>
                     </div>
                 </div>
 

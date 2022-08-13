@@ -43,7 +43,7 @@
 }
 
 .btn{
-    @apply p-2 rounded m-2;
+    @apply p-2 rounded m-2 text-center;
 }
 
 .btn__warning{

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SeanceService {
@@ -26,5 +27,9 @@ public class SeanceService {
         Pageable request = PageRequest.of(0, 10, Sort.by("playDate").ascending());
         Page<Seance> pagedResult = seanceRepository.findAll(request);
         return pagedResult.toList();
+    }
+
+    public Optional<Seance> findById(Long id){
+        return seanceRepository.findById(id);
     }
 }

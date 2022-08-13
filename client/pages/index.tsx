@@ -9,7 +9,7 @@ const Home: NextPage = () => {
         <title>Homepage</title>
     </Head>
       <h1 className="text-4xl">Welcome to the cinema!</h1>
-      <Link href="/movies" className="text-xl">Check our movies out!</Link>
+      <Link href="/seances" className="text-xl">Check our movies out!</Link>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import {NextPage} from "next";
-import SeanceRow from "../components/movies/SeanceRow";
-import seanceRow from "../components/movies/SeanceRow";
+import SeanceRow from "../../components/movies/SeanceRow";
+import seanceRow from "../../components/movies/SeanceRow";
 
 type seance = {
     id: number;
@@ -26,7 +26,7 @@ const Movies: NextPage<PageProps> = ({seances}) => {
     return(
         <div className="movies-list">
             {seances.map((seance) => {
-                return <SeanceRow data={seance}/>
+                return <SeanceRow key={seance.id} data={seance}/>
             })}
         </div>
     )
@@ -34,7 +34,7 @@ const Movies: NextPage<PageProps> = ({seances}) => {
 
 export default Movies;
 
-export async function getServerSideProps(){
+export async function getStaticProps(){
 
     const res = await fetch("http://localhost:8080/seances");
     const data = await res.json();
