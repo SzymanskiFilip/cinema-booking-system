@@ -38,11 +38,11 @@ function SeanceRow({data}: seance): JSX.Element{
                 </div>
 
                 <div className="flex flex-col">
-                    <Link href="/seances/1"><button className="btn btn__warning">MORE INFO</button></Link>
+                    <Link href="/seances/1" passHref><a className="btn btn__warning">MORE INFO</a></Link>
 
                     <div className="flex flex-row">
-                        <Link href={"/"}><button className="btn btn__change">CHANGE SEAT</button></Link>
-                        <Link href={`/seances/${data.id}`}><button className="btn btn__action" >RESERVE SEAT</button></Link>
+                        <Link href={"/"} passHref><a className="btn btn__change">CHANGE SEAT</a></Link>
+                        <Link href={`/seances/${data.id}`} passHref><a className="btn btn__action" >RESERVE SEAT</a></Link>
                     </div>
                 </div>
 
