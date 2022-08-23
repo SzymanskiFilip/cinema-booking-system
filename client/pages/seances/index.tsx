@@ -34,7 +34,7 @@ const Movies: NextPage<PageProps> = ({seances}) => {
 
 export default Movies;
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
 
     const res = await fetch("http://localhost:8080/seances");
     const data = await res.json();
