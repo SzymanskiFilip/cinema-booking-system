@@ -60,6 +60,13 @@ public class ServerApplication {
                 "someplayer@gmail.com"
         );
 
+        Seat seat2 = new Seat(
+                2L,
+                seance,
+                13,
+                "someplayer13@gmail.com"
+        );
+
         movieRepository.save(fightClub);
         movieRepository.save(loneSurvivor);
 
@@ -67,6 +74,7 @@ public class ServerApplication {
         seanceRepository.save(loneSeance);
 
         seatRepository.save(seat);
+        seatRepository.save(seat2);
     }
 
 }
