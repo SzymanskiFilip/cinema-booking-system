@@ -67,7 +67,7 @@
 }
 
 .seance__seats-section{
-
+    @apply flex flex-col items-center;
 }
 
 .seance__reservation-info{
@@ -75,9 +75,19 @@
 }
 
 .seance__side{
-    @apply m-4 w-2/6;
+    @apply ml-4 mt-4 w-2/6;
 }
 
 .screen-baner{
     @apply bg-gray-700 text-white font-bold p-2 w-96 text-center rounded mt-4;
+}
+
+.seats-list{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.seat{
+    @apply p-6 bg-amber-600 m-px w-16 h-16;
 }
