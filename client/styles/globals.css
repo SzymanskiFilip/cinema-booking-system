@@ -75,7 +75,7 @@
 }
 
 .seance__side{
-    @apply ml-4 mt-4 w-2/6;
+    @apply ml-4 mt-4 w-2/6 flex flex-col justify-center;
 }
 
 .screen-baner{
@@ -83,7 +83,7 @@
 }
 
 .seats-list{
-    margin-top: 20px;
+    margin-top: 45px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
@@ -98,4 +98,14 @@
 
 .seat__free{
     @apply bg-green-500;
+}
+
+.seat__selected{
+    @apply bg-green-700;
+}
+
+.seat__free:hover{
+    cursor: pointer;
+    transition: 0.3s;
+    @apply bg-green-600;
 }
