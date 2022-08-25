@@ -25,7 +25,11 @@ function SeatsList({seats}: Props): JSX.Element{
         <div className="seats-list">
             {
                 seatsList.map(seat => {
-                    return <Seat id={seat.seatNumber}/>
+                    let taken: boolean = false;
+                    if(seat.email.length > 3){
+                        taken = true;
+                    }
+                    return <Seat id={seat.seatNumber} taken={taken}/>
                 })
             }
         </div>

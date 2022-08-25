@@ -89,5 +89,13 @@
 }
 
 .seat{
-    @apply p-6 bg-amber-600 m-px w-16 h-16;
+    @apply p-6 m-px w-16 h-16 text-center text-white;
+}
+
+.seat__taken{
+    @apply bg-red-700;
+}
+
+.seat__free{
+    @apply bg-green-500;
 }

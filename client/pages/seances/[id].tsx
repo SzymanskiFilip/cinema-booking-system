@@ -32,6 +32,8 @@ type PageProps = {
 
 const Seance: NextPage<PageProps> = ({seance, seats}: PageProps) => {
 
+    console.log(seats)
+
     return (
         <div className="seance">
             <div className="seance__short-info seance__side">
