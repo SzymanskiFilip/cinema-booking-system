@@ -57,3 +57,27 @@
 .btn__action{
     @apply bg-sky-700 text-white;
 }
+
+.seance{
+    @apply flex flex-row justify-between;
+}
+
+.seance__short-info{
+    @apply text-2xl;
+}
+
+.seance__seats-section{
+
+}
+
+.seance__reservation-info{
+
+}
+
+.seance__side{
+    @apply m-4 w-2/6;
+}
+
+.screen-baner{
+    @apply bg-gray-700 text-white font-bold p-2 w-96 text-center rounded mt-4;
+}
