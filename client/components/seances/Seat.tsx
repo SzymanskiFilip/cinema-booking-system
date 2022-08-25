@@ -23,12 +23,14 @@ function Seat({id, taken, addSeat, removeSelection}: props): JSX.Element{
     }
 
     function select(){
-        setSelected(!selected);
-        if(!selected){
-            addSeat(id);
-        }
-        if(selected){
-            removeSelection(id);
+        if(!taken){
+            setSelected(!selected);
+            if(!selected){
+                addSeat(id);
+            }
+            if(selected){
+                removeSelection(id);
+            }
         }
     }
 
