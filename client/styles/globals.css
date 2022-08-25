@@ -75,7 +75,15 @@
 }
 
 .seance__side{
-    @apply ml-4 mt-4 w-2/6 flex flex-col justify-center;
+    @apply mt-4 w-2/6 flex flex-col justify-center items-center;
+}
+
+.seance__side__left{
+    @apply ml-4;
+}
+
+.seance__side__right{
+    @apply mr-4;
 }
 
 .screen-baner{

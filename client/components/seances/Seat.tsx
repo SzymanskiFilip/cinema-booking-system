@@ -4,8 +4,9 @@ import seatsList from "./SeatsList";
 type props = {
     id: number;
     taken: boolean;
+    addSeat: (id: number) => void;
 }
-function Seat({id, taken}: props): JSX.Element{
+function Seat({id, taken, addSeat}: props): JSX.Element{
 
     const [selected, setSelected] = useState<boolean>(false);
 
@@ -20,10 +21,15 @@ function Seat({id, taken}: props): JSX.Element{
         }
     }
 
+    function select(){
+        setSelected(!selected);
+        addSeat(id);
+    }
+
     return(
         <div
             className={selected ? "seat seat__selected" : getStyle()}
-            onClick={() => setSelected(!selected)}
+            onClick={select}
         >
             <h1>{id}</h1>
         </div>

@@ -5,6 +5,7 @@ import {getDateString} from "../../util/getDateString";
 import Seat from "../../components/seances/Seat";
 import {getArrayOfSeats} from "../../util/getArrayOfSeats";
 import SeatsList from "../../components/seances/SeatsList";
+import {useState} from "react";
 
 type seance = {
     id: number;
@@ -32,11 +33,15 @@ type PageProps = {
 
 const Seance: NextPage<PageProps> = ({seance, seats}: PageProps) => {
 
-    console.log(seats)
+    const [selectedSeats, setSelectedSeats] = useState<number[]>([]);
+
+    function addSeat(id: number){
+        setSelectedSeats([...selectedSeats, id]);
+    }
 
     return (
         <div className="seance">
-            <div className="seance__short-info seance__side">
+            <div className="seance__short-info seance__side seance__side__left">
                 <h1>{seance.movie.title}</h1>
                 <h1>{getDateString(new Date(seance.playDate))}</h1>
                 <img src={seance.movie.coverURL} alt="cover" height="200px" width="200px" className="rounded"/>
@@ -44,11 +49,19 @@ const Seance: NextPage<PageProps> = ({seance, seats}: PageProps) => {
 
             <div className="seance__seats-section">
                 <h1 className="screen-baner">SCREEN</h1>
-                <SeatsList seats={seats}/>
+                <SeatsList seats={seats} addSeat={addSeat}/>
             </div>
 
             <div className="seance__reservation-info seance__side">
-
+                <h1>Selected seats:</h1>
+                <div>
+                    {
+                        selectedSeats.map(num => {
+                            return <p>{num}</p>
+                        })
+                    }
+                </div>
+                <button>RESERVE</button>
             </div>
         </div>
     )

@@ -8,15 +8,15 @@ type seat = {
 
 type Props = {
     seats: seat[];
+    addSeat: (id: number) => void;
 }
 
-function SeatsList({seats}: Props): JSX.Element{
+function SeatsList({seats, addSeat}: Props): JSX.Element{
     let seatsList: seat[] = [];
 
     for(let i = 1; i <= 50; i++){
         seatsList.push({id: i, seatNumber: i, email: ""});
     }
-
     for(let i = 0; i < seats.length; i++){
         seatsList[seats[i].seatNumber] = seats[i];
     }
@@ -29,7 +29,7 @@ function SeatsList({seats}: Props): JSX.Element{
                     if(seat.email.length > 3){
                         taken = true;
                     }
-                    return <Seat id={seat.seatNumber} taken={taken}/>
+                    return <Seat id={seat.seatNumber} taken={taken} addSeat={addSeat}/>
                 })
             }
         </div>
