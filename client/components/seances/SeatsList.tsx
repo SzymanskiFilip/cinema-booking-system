@@ -9,9 +9,10 @@ type seat = {
 type Props = {
     seats: seat[];
     addSeat: (id: number) => void;
+    removeSelection: (id: number) => void;
 }
 
-function SeatsList({seats, addSeat}: Props): JSX.Element{
+function SeatsList({seats, addSeat, removeSelection}: Props): JSX.Element{
     let seatsList: seat[] = [];
 
     for(let i = 1; i <= 50; i++){
@@ -29,7 +30,7 @@ function SeatsList({seats, addSeat}: Props): JSX.Element{
                     if(seat.email.length > 3){
                         taken = true;
                     }
-                    return <Seat id={seat.seatNumber} taken={taken} addSeat={addSeat}/>
+                    return <Seat id={seat.seatNumber} taken={taken} addSeat={addSeat} removeSelection={removeSelection}/>
                 })
             }
         </div>

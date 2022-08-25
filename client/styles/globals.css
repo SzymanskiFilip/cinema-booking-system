@@ -117,3 +117,7 @@
     transition: 0.3s;
     @apply bg-green-600;
 }
+
+.selected-list{
+    @apply h-24 w-24 overflow-scroll overflow-x-hidden;
+}

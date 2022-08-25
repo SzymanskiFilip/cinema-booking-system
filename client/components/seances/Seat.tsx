@@ -5,8 +5,9 @@ type props = {
     id: number;
     taken: boolean;
     addSeat: (id: number) => void;
+    removeSelection: (id: number) => void;
 }
-function Seat({id, taken, addSeat}: props): JSX.Element{
+function Seat({id, taken, addSeat, removeSelection}: props): JSX.Element{
 
     const [selected, setSelected] = useState<boolean>(false);
 
@@ -23,7 +24,12 @@ function Seat({id, taken, addSeat}: props): JSX.Element{
 
     function select(){
         setSelected(!selected);
-        addSeat(id);
+        if(!selected){
+            addSeat(id);
+        }
+        if(selected){
+            removeSelection(id);
+        }
     }
 
     return(

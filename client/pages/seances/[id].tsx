@@ -39,6 +39,10 @@ const Seance: NextPage<PageProps> = ({seance, seats}: PageProps) => {
         setSelectedSeats([...selectedSeats, id]);
     }
 
+    function removeSelection(id: number){
+        setSelectedSeats([...selectedSeats.slice(1, id)]);
+    }
+
     return (
         <div className="seance">
             <div className="seance__short-info seance__side seance__side__left">
@@ -49,12 +53,12 @@ const Seance: NextPage<PageProps> = ({seance, seats}: PageProps) => {
 
             <div className="seance__seats-section">
                 <h1 className="screen-baner">SCREEN</h1>
-                <SeatsList seats={seats} addSeat={addSeat}/>
+                <SeatsList seats={seats} addSeat={addSeat} removeSelection={removeSelection}/>
             </div>
 
             <div className="seance__reservation-info seance__side">
                 <h1>Selected seats:</h1>
-                <div>
+                <div className="selected-list">
                     {
                         selectedSeats.map(num => {
                             return <p>{num}</p>
